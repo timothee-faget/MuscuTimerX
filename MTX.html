@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MuscuTimerX</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+      integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script type="module" src="static/loader.js" defer></script> -->
+    <script src="static/script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>MuscuTimerX</h1>
+      <div class="container-left">
+        <div class="tile">
+          <div class="container-title">Configuration</div>
+        </div>
+        
+        <div class="series-container tile">
+          <p>Nombre de séries</p>
+          <input id="reps" type="number" value="1" />
+        </div>
+        <div class="main-container tile" id="main">
+          <div class="sub-container-cats">
+            <p style="width: 40%; text-align: center">Exercice</p>
+            <p style="width: 50%; text-align: center">Temps (s)</p>
+            <p style="width: 10%; text-align: center"></p>
+          </div>
+          <div class="sub-container" id="1">
+            <input id="name" type="text" value="Gainage avant" />
+            <input id="time" type="number" value="5" />
+            <button onclick="deleteLine('1')">-</button>
+          </div>
+          <div class="sub-container" id="2">
+            <input id="name" type="text" value="Repos" />
+            <input id="time" type="number" value="5" />
+            <button onclick="deleteLine('2')">-</button>
+          </div>
+          <div class="sub-container" id="3">
+            <input id="name" type="text" value="Gainage avant" />
+            <input id="time" type="number" value="5" />
+            <button onclick="deleteLine('3')">-</button>
+          </div>
+          <div class="sub-container" id="4">
+            <input id="name" type="text" value="Repos" />
+            <input id="time" type="number" value="5" />
+            <button onclick="deleteLine('4')">-</button>
+          </div>
+          <button id="add-btn" onclick="addLine()">AJOUTER</button>
+        </div>
+        <div class="file-loader tile">
+          <button id="file-load-btn" onclick="loadFile()">CHARGER</button>
+          <button id="file-save-btn" onclick="saveFile()">SAUVER</button>
+          <button id="reset-btn" onclick="resetProgram()">RAZ</button>
+        </div>
+        <div class="time-checkbox-container tile">
+          <input type="checkbox" id="sound-checkbox" name="sound" checked/>
+          <label for="sound">Bip sonore</label>
+        </div>
+      </div>
+      <div class="container-right">
+        <div class="tile">
+          <div class="container-title">Compte à rebours</div>
+        </div>
+        <div class="buttons tile">
+          <button id="lnc-btn" onclick="launchTimer()">LANCER</button>
+          <button id="pse-btn" onclick="pauseTimer()">PAUSE</button>
+          <button id="stp-btn" onclick="stopTimer()">STOP</button>
+        </div>
+        <div class="total-time-container tile">
+          <h5>Temps total restant</h5>
+          <h2 id="total-time">00:00</h2>
+        </div>
+        <div class="part-time-container tile">
+          <h4 id="part-name">-</h4>
+          <h2 id="part-time">00:00</h2>
+          <h5 id="next-part-name">-</h5>
+        </div>
+      </div>
+      <h3>by @timotheefaget</h3>
+
+      <!-- <div class="main-menu">X</div> -->
+    </main>
+
+    <!-- <script src="static/script.js"></script> -->
+  </body>
+</html>
